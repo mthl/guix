@@ -3112,6 +3112,43 @@ changes.  There is support for cherry picking, reverting, merging,
 rebasing, and other common Git operations.")
     (license license:gpl3+)))
 
+(define-public emacs-magit-section
+  (package
+    (inherit emacs-magit)
+    (name "emacs-magit-section")
+    (arguments
+     (list
+      #:lisp-directory "lisp"
+      #:tests? #f                    ;Tests are executed in the parent package
+      #:phases
+      #~(modify-phases %standard-phases
+          (add-after 'unpack 'include-only-magit-section
+            (lambda _
+              ;; XXX: '#:include' does not work here because it only applied
+              ;; in the install phase. This workaround allows
+              ;; 'magit-section-pkg.el' to be generated and
+              ;; 'magit-section-autoloads.el' to be correct.
+              (for-each delete-file
+                        (delete "./magit-section.el"
+                                (find-files "." "\\.el$")))))
+          (add-after 'unpack 'build-info-manual
+            (lambda _
+              (invoke "make" "-C" ".." "info")
+              ;; Copy the info file to the lisp directory, which acts as
+              ;; the root of the project for the emacs-build-system.
+              (install-file "../docs/magit-section.info" "../lisp"))))))
+    (inputs '())
+    (propagated-inputs
+     (list emacs-compat
+           emacs-cond-let
+           emacs-llama))
+    (synopsis "Sections for read-only buffers")
+    (description
+     "This package implements the main user interface of Magit — the
+collapsible sections that make up its buffers.  This package used to be
+distributed as part of Magit but how it can also be used by other packages
+that have nothing to do with Magit or Git.")))
+
 (define-public emacs-magit-stgit
   (package
     (name "emacs-magit-stgit")
