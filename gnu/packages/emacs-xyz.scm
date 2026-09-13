@@ -35627,6 +35627,7 @@ accept and reject GitHub pull requests.")
     (propagated-inputs
      (list emacs-ghub
            emacs-magit
+           emacs-magit-section
            emacs-markdown-mode))
     (synopsis "Review GitHub Pull Requests")
     (description "This package provides a way to review GitHub Pull
