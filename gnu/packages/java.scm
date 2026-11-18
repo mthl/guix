@@ -1617,8 +1617,8 @@ blacklisted.certs.pem"
 
 (define-public openjdk25
   (make-openjdk
-   openjdk24 "25.0.2"
-   "03aa34lscr3qbdl6qz3gqyp0nzkqfj02362mzmpkiq3y2g5xdnrj"
+   openjdk24 "25.0.5.1"
+   "0z94r060r0vrbkh1iziynhjxjlqi1xr12zv3ck9vw33hviz5c41w"
    (arguments
     (substitute-keyword-arguments arguments
       ((#:configure-flags flags #~(list))
