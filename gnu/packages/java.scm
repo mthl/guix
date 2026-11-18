@@ -1561,8 +1561,8 @@ blacklisted.certs.pem"
                (setenv "SOURCE_DATE_EPOCH" "1234567890")))))))))
 
 (define-public openjdk21
-  (make-openjdk openjdk20 "21.0.2"
-                "0d1g3wnzr5whjpq8gvxq0h7kd7lxd3xgc6bh3kg8vzz096asn0kj"
+  (make-openjdk openjdk20 "21.0.13.1"
+                "00vb53l2q1wypzid41z23n8manbhbha1kwwa8ibx3kh4lnh2cx8n"
    (source (origin
              (inherit (package-source base))
              (patches (search-patches "openjdk-15-xcursor-no-dynamic.patch"
