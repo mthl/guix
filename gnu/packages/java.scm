@@ -1101,7 +1101,7 @@ new Date();"))))
 (define-public openjdk11
   (package
     (name "openjdk")
-    (version "11.0.22")
+    (version "11.0.33.1")
     (source (origin
               (method url-fetch)
               (uri (string-append "https://openjdk-sources.osci.io/openjdk11/openjdk-"
@@ -1109,7 +1109,7 @@ new Date();"))))
               (file-name (string-append name "-" version ".tar.xz"))
               (sha256
                (base32
-                "18ca4syp9xlrqjgyjkb1sp9835riy6aym5xs81r8byrz6jlb2473"))
+                "1px9097fzsijvfw920kxhczp4pp0009n777ljjcz0kcllmvrwrzc"))
               (modules '((guix build utils)))
               (snippet
                '(for-each delete-file (find-files "." "\\.(bin|exe|jar)$")))
