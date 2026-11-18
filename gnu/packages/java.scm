@@ -1517,8 +1517,8 @@ blacklisted.certs.pem"
 
 (define-public openjdk17
   (make-openjdk
-   openjdk16 "17.0.10"
-   "1bq1rqnipz6wdr05s20gm8nlpb3328ljxckzvc5ag0gf7fzlhn5f"
+   openjdk16 "17.0.21.1"
+   "19lsa0h65m19237rw28cw3g8prwh0x12hrnzsxzq634himsczdkg"
    (source (origin
              (inherit (package-source base))
              (patches (search-patches "openjdk-15-xcursor-no-dynamic.patch"))))
